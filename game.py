@@ -1,6 +1,6 @@
 import pygame
 
-WIN_WIDTH, WIN_HEIGHT = 1000, 600
+WIN_WIDTH, WIN_HEIGHT = 1000, 800
 RES = (WIN_WIDTH, WIN_HEIGHT)
 
 class Game:
@@ -15,7 +15,7 @@ class Game:
         self.FPS = FPS
         
     def draw_background(self, win):
-        win.blit(self.BACKGROUND_IMG)
+        win.blit(self.BACKGROUND_IMG, (0, 0))
 
 
 
@@ -33,8 +33,7 @@ def main(game):
     
     while running:
         
-        clock.tick(game.FPS)    
-        screen.fill((0, 0, 0))
+        clock.tick(game.FPS) # limits the fps
         # screen.blit("background.png", (0, 0)) -- background.png not defined yet
         
         for event in pygame.event.get():
