@@ -4,8 +4,8 @@ class Game:
 
     
     def __init__(self, FPS):
-        self.WIN_HEIGHT = 980
-        self.WIN_WIDTH = 980
+        self.WIN_HEIGHT = 490
+        self.WIN_WIDTH = 490
         self.title = "Cheesburger Game"
         self.RES = (self.WIN_WIDTH, self.WIN_HEIGHT)
         self.BACKGROUND_IMG  = pygame.transform.scale(pygame.image.load("Assets/background.png"), self.RES)
