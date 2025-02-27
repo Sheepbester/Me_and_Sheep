@@ -3,18 +3,37 @@ import pygame
 WIN_WIDTH, WIN_HEIGHT = 1000, 600
 RES = (WIN_WIDTH, WIN_HEIGHT)
 
+class Game:
+    
+    WIN_HEIGHT = 1000
+    WIN_WIDTH = 600
+    
+    def __init__(self, FPS):
+        self.title = "Cheesburger Game"
+        self.RES = (WIN_WIDTH, WIN_HEIGHT)
+        self.BACKGROUND_IMG  = pygame.transform.scale(pygame.image.load("Assets/background.png"), self.RES)
+        self.FPS = FPS
+        
+    def draw_background(self, win):
+        win.blit(self.BACKGROUND_IMG)
+
+
+
 pygame.init()
 
-screen = pygame.display.set_mode(RES)
-pygame.display.set_caption("Chessburger Game")
+game = Game(FPS=60)
 
-def main(fps=60):
+screen = pygame.display.set_mode(game.RES)
+pygame.display.set_caption(game.title)
+
+def main(game):
     
     running = True
     clock = pygame.time.Clock()
     
     while running:
         
+        clock.tick(game.FPS)    
         screen.fill((0, 0, 0))
         # screen.blit("background.png", (0, 0)) -- background.png not defined yet
         
@@ -24,5 +43,9 @@ def main(fps=60):
                 
         pygame.display.flip()
         
+        game.draw_background(screen)
+        
     pygame.quit()
     quit()
+    
+main(game=game)
