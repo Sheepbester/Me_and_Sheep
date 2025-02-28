@@ -1,0 +1,1 @@
+This .txt file serves for us deciding on what we even want to code.
